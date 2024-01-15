@@ -1,6 +1,6 @@
 # Simple Sushi Website Using Flask
 
-This repository contains a Flask application for managing promotions and user data. The application includes features such as updating promotions, user authentication, and real-time chart updates.
+This repository contains a Flask application for managing promotions and user data for a sushi website. The application includes features such as updating promotions, user authentication, and real-time chart updates.
 
 ## Features
 
