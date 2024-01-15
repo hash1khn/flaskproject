@@ -1,4 +1,4 @@
-# Simple Sushi Website
+# FlaskProject: Promotion and User Management
 
 This repository contains a Flask application for managing promotions and user data. The application includes features such as updating promotions, user authentication, and real-time chart updates.
 
@@ -25,17 +25,22 @@ This repository contains a Flask application for managing promotions and user da
 ## Getting Started
 
 1. Clone the repository:
-   ""
-   git clone https://github.com/your-username/flaskproject.git
-   ""
 
-3. Install dependencies:
+   ```
+   git clone https://github.com/your-username/FlaskProject.git
+   ```
 
+2. Install dependencies:
+
+   ```
    pip install -r requirements.txt
+   ```
 
-4. Run the application:
+3. Run the application:
 
+   ```
    python app.py
+   ```
 
    The application will run in debug mode, accessible at [http://127.0.0.1:5000/](http://127.0.0.1:5000/).
 
@@ -66,4 +71,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Chart.js](https://www.chartjs.org/) for the chart visualization.
 - Other open-source libraries used in this project.
 
-Thank you for using and contributing to this Flask application!
+Thank you for using and contributing to the FlaskProject!
