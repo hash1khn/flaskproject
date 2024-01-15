@@ -25,9 +25,9 @@ This repository contains a Flask application for managing promotions and user da
 ## Getting Started
 
 1. Clone the repository:
-   '''
+   ""
    git clone https://github.com/your-username/flaskproject.git
-   '''
+   ""
 
 3. Install dependencies:
 
