@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sushi Restaurant</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel='stylesheet' id='genki-sushi-slick-css'
+    href='https://www.genkisushi.com.sg/wp-content/themes/genki-sushi/assets/lib/slick/slick.css?ver=6.4.2'
+    type='text/css' media='all' />
+  <link rel='stylesheet' id='genki-sushi-slick-theme-css'
+    href='https://www.genkisushi.com.sg/wp-content/themes/genki-sushi/assets/lib/slick/slick-theme.css?ver=6.4.2'
+    type='text/css' media='all' />
+  <link rel='stylesheet' href='/static/css/style.css'>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <!-- Logo on the left -->
+    <a class="navbar-brand" href="#">
+      <img src="/static/img/download.png" alt="ECOBITE" height="40">
+      ECOBITE
+    </a>
+
+    <!-- Navbar toggle button for small screens -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation links on the right -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Order Now</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Promotions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#sliderr">Menu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('login') }}">Login / Staff</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Partnership</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div><img src="https://www.genkisushi.com.sg/wp-content/uploads/2021/11/Artboard-11-100.jpg" alt="Page Image"
+      class="page-image"> </div>
+  <!-- Carousel Slider -->
+  <section class="our-menu padd-content" id="sliderr">
+    <h1 class="h1-title text-center swiff fadeInUp">Our Menu</h1>
+
+    <div id="sushiCarousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <!-- Train 1 content here -->
+          <img src="https://www.genkisushi.com.sg/wp-content/themes/genki-sushi/assets/img/trains/1.png"
+            class="d-block w-100" alt="Train 1">
+          <div class="row sushi-item">
+
+            <div class="col list">
+              <a href=""><img src="https://www.genkisushi.com.sg/wp-content/uploads/2018/07/Dai-Man-Zoku.png"></a>
+              <div class="name">Dai Man Zoku</div>
+            </div>
+
+
+            <div class="col list">
+              <a href=""><img src="https://www.genkisushi.com.sg/wp-content/uploads/2018/07/Nigiri.png"></a>
+              <div class="name">Nigiri Sushi</div>
+            </div>
+
+
+            <div class="col list">
+              <a href=""><img
+                  src="https://www.genkisushi.com.sg/wp-content/uploads/2019/06/seared-sushi-plate@2x.png"></a>
+              <div class="name">Aburi Sushi</div>
+            </div>
+
+
+            <div class="col list">
+              <a href=""><img src="https://www.genkisushi.com.sg/wp-content/uploads/2018/07/gunkan.png"></a>
+              <div class="name">Gunkan</div>
+            </div>
+
+          </div><!-- sushi-item -->
+        </div>
+        <!-- Add your sushi items for Train 1 here -->
+        <div class="carousel-item">
+          <!-- Train 2 content here -->
+          <img src="https://www.genkisushi.com.sg/wp-content/themes/genki-sushi/assets/img/trains/2.png"
+            class="d-block w-100" alt="Train 2">
+          <!-- Add your sushi items for Train 2 here -->
+          <div class="row sushi-item">
+
+            <div class="col list">
+              <a href=""><img src="https://www.genkisushi.com.sg/wp-content/uploads/2018/07/Maki-and-Temaki.png"></a>
+              <div class="name">Roll & Handroll</div>
+            </div>
+
+
+            <div class="col list">
+              <a href=""><img src="https://www.genkisushi.com.sg/wp-content/uploads/2018/07/sashimi.png"></a>
+              <div class="name">Sashimi</div>
+            </div>
+
+
+            <div class="col list">
+              <a href=""><img src="https://www.genkisushi.com.sg/wp-content/uploads/2018/07/Dessert.png"></a>
+              <div class="name">Appetizer</div>
+            </div>
+
+
+            <div class="col list">
+              <a href=""><img src="https://www.genkisushi.com.sg/wp-content/uploads/2018/07/sides-1.png"></a>
+              <div class="name">Sides</div>
+            </div>
+
+          </div><!-- sushi-item -->
+        </div>
+        <div class="carousel-item">
+          <!-- Train 3 content here -->
+          <img src="https://www.genkisushi.com.sg/wp-content/themes/genki-sushi/assets/img/trains/3.png"
+            class="d-block w-100" alt="Train 3">
+          <!-- Add your sushi items for Train 3 here -->
+          <div class="row sushi-item">
+
+
+
+
+            <div class="col list">
+              <a href=""><img src="https://www.genkisushi.com.sg/wp-content/uploads/2018/07/Rice-Noodles.png"></a>
+              <div class="name">Rice & Noodles</div>
+            </div>
+
+
+            <div class="col list">
+              <a href=""><img src="https://www.genkisushi.com.sg/wp-content/uploads/2018/07/Dessert-1.png"></a>
+              <div class="name">Dessert</div>
+            </div>
+            <div class="col list">
+              <a href=""><img
+                  src="https://www.genkisushi.com.sg/wp-content/uploads/2018/07/Salmon-Deluxe-Set-23.80.png"></a>
+              <div class="name">Takeaway</div>
+            </div>
+
+          </div><!-- sushi-item -->
+        </div><!-- slide -->
+
+      </div>
+    </div>
+    <!-- Add navigation controls if needed -->
+    <a class="carousel-control-prev" href="#sushiCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#sushiCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+      src="https://www.genkisushi.com.sg/wp-content/themes/genki-sushi/assets/lib/slick/slick.js?ver=20180713"
+      id="genki-sushi-slick-js"></script>
+  </section>
+  <!-- Button to trigger the promotion modal -->
+  <div class="d-flex justify-content-center mb-5">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#promotionModal"
+      style="background-color: rgb(96, 174, 106); ">
+      Promotions Happening Now!
+    </button>
+  </div>
+  <!-- Promotion Modal -->
+  <div class="modal fade" id="promotionModal" tabindex="-1" role="dialog" aria-labelledby="promotionModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="promotionModalLabel">Current Promotions</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="promotion">
+          <!-- Add your dynamic promotion content here -->
+          <p>Enjoy these special deals:</p>
+          <ul>
+            <li>Deal 1: 20% off on selected items</li>
+            <li>Deal 2: Free dessert with every main course</li>
+            <!-- Add more deals as needed -->
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="/static/img/download.png" alt="Your Logo" height="50">
+        </div>
+        <div class="col-md-6 text-right">
+          <p>&copy; 2024 ECOBITE. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    function updatePromotions() {
+      fetch('/get_promotions')  // Assuming you have an endpoint to get promotions
+        .then(response => response.json())
+        .then(data => {
+          const promotionModalBody = document.getElementById('promotion');
+          promotionModalBody.innerHTML = '';
+
+          if (data.promotions && data.promotions.length > 0) {
+            const ul = document.createElement('ul');
+            data.promotions.forEach(promotion => {
+              const li = document.createElement('li');
+              li.textContent = promotion;
+              ul.appendChild(li);
+            });
+            promotionModalBody.appendChild(ul);
+          } else {
+            promotionModalBody.innerHTML = '<p>No promotions currently available.</p>';
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching promotions:', error);
+        });
+    }
+
+    // Call the function to initially populate promotions
+    updatePromotions();
+
+    // Update promotions every 5 seconds (adjust the interval as needed)
+    setInterval(updatePromotions, 5000);
+  </script>
+
+</body>
+
+</html>

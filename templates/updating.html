@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/style2.css" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Add this inside the <head> tag of your HTML -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Your head content -->
+</head>
+
+<body>
+    <header>
+        <h1>Admin/Manager Dashboard</h1>
+    </header>
+
+    <nav>
+        <a href="#" data-toggle="modal" data-target="#promotionModal">Promotions</a>
+        <a href="{{ url_for('monitoring') }}">Monitoring</a>
+        <a href="#">Partnership</a>
+        <a href="#">Tracker</a>
+    </nav>
+    <div class="modal fade" id="promotionModal" tabindex="-1" role="dialog" aria-labelledby="promotionModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="promotionModalLabel">
+                        Update Promotions
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label for="newPromotion">New Promotion:</label>
+                    <input type="text" id="newPromotion" name="newPromotion" class="form-control" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="updatePromotions()">
+                        Update Promotions
+                    </button>
+                    <input type="text" id="removePromotion" name="removePromotion" class="form-control" />
+                    <button type="button" class="btn btn-danger" onclick="removePromotion()">
+                        Remove Promotion
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Add this where you want the chart to appear -->
+    <canvas id="foodLeftOverChart" width="400" height="200"></canvas>
+    <!-- Add this inside a <script> tag or in your JavaScript file -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Dummy data for demonstration
+            var data = {
+                labels: [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
+                    "Sunday",
+                ],
+                datasets: [
+                    {
+                        label: "Food Left Over Today",
+                        data: [20, 30, 40, 50, 60, 70, 80], // Replace this array with your actual data
+                        backgroundColor: "rgba(75, 192, 192, 0.2)",
+                        borderColor: "rgba(75, 192, 192, 1)",
+                        borderWidth: 1,
+                    },
+                ],
+            };
+
+            // Get the canvas element
+            var ctx = document.getElementById("foodLeftOverChart").getContext("2d");
+
+            // Create and render the chart
+            var myChart = new Chart(ctx, {
+                type: "bar",
+                data: data,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                        },
+                    },
+                },
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Your script for updating promotions -->
+    <script>
+        function updatePromotions() {
+            var newPromotion = document.getElementById("newPromotion").value;
+
+            // Make an AJAX request to update promotions
+            fetch("/update_promotions", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ promotions: [newPromotion] }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    alert(data.message);
+                    // Reload the page to reflect updated promotions
+                    location.reload();
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+        }
+        function removePromotion() {
+            var promotionToRemove = document.getElementById('removePromotion').value;
+
+            // Make an AJAX request to remove promotions
+            fetch('/update_promotions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ remove_promotion: promotionToRemove }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                    // Reload the page to reflect updated promotions
+                    location.reload();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+/* Add this CSS to your styles */
+.navbar {
+  min-height: 80px; /* Adjust the height as needed */
+}
+
+.navbar-brand img {
+  max-height: 60px; /* Adjust the logo height as needed */
+}
+
+/* Style for the navbar links */
+.navbar-nav .nav-link {
+  padding: 15px 20px; /* Adjust padding for the links */
+  font-size: 16px; /* Adjust font size for the links */
+}
+
+/* Sticky navbar on scrolling */
+.navbar.fixed-top {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background-color: rgb(
+    96,
+    174,
+    106
+  ); /* Change the background color as needed */
+  border-bottom: 1px solid rgb(96, 174, 106); /* Optional: Add a border at the bottom */
+}
+.carousel-inner {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping to the next line */
+  overflow-x: auto; /* Enable horizontal scrolling */
+}
+.sushi-item .col.list {
+  margin-right: 1px; /* Adjust the margin between items as needed */
+  max-width: 120px;
+  /* Adjust the maximum width as needed */
+  margin: 0 auto;
+  text-align: center;
+  margin-top: -135px;
+  margin-bottom: 35px;
+  letter-spacing: 0;
+}
+.sushi-item .col.list a img {
+  max-width: 100%;
+  letter-spacing: 0;
+  /* Make the images responsive */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #d2b48c;
+  /* Light brown color code */
+  border-radius: 50%;
+  /* Optional: Make the background circular */
+  font-size: 24px; /* Adjust the font size for the arrow icon */
+  padding: 15px;
+}
+
+/* Change the color of the arrow controls to light brown */
+.carousel-control-prev,
+.carousel-control-next {
+  color: #d2b48c;
+  margin-top: 1100px;
+  /* Light brown color code */
+  font-size: 30px; /* Adjust the font size for the arrow text */
+  margin-top: 1100px;
+}
+
+.navbar {
+  padding: 15px; /* Adjust the top and bottom padding as needed */
+  min-height: 80px;
+  /* Adjust the minimum height as needed */
+}
+
+.page-image {
+  width: 100%;
+  height: auto;
+  /* Maintain aspect ratio */
+  display: block;
+  /* Remove any default spacing */
+}
+.promotion-notification {
+  background-color: #f8d7da;
+  color: blue;
+  padding: 10px 0;
+  text-align: center;
+  display: none;
+}
+.footer {
+  background-color: rgb(96, 174, 106);
+  color: black;
+  padding: 20px 0;
+  padding: 50px 0;
+}
+
+.footer img {
+  max-height: 50px;
+}
+
+.footer p {
+  margin: 0;
+}

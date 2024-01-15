@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style1.css">
+    <title>Login Form</title>
+</head>
+
+<body>
+
+    <div class="login-container">
+        <h2>Login</h2>
+
+        <form id="login-form" action="{{ url_for('login') }}" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="login-type">Login As:</label>
+            <select id="login-type" name="login-type">
+                <option value="staff">Staff</option>
+                <option value="admin">Admin</option>
+            </select>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <button type="button" class="add-staff-btn" onclick="promptForPassword()">Add Staff/Manager</button>
+
+        <form id="password-prompt" style="display: none;">
+            <label for="password-input">Enter Password to Add User:</label>
+            <input type="password" id="password-input" required>
+            <button type="button" onclick="checkPassword()">Submit</button>
+        </form>
+
+        <form id="signup-form" action="{{ url_for('add_user') }}" method="POST" class="signup-form"
+            style="display: none;">
+            <label for="new-username">New Username:</label>
+            <input type="text" id="new-username" name="new-username" required>
+
+            <label for="new-password">New Password:</label>
+            <input type="password" id="new-password" name="new-password" required>
+
+            <label for="new-role">Role:</label>
+            <select id="new-role" name="new-role">
+                <option value="staff">Staff</option>
+                <option value="admin">Admin</option>
+            </select>
+            <button type="submit">Add</button>
+            <button type="button" onclick="goBackToLogin()">Go Back</button>
+        </form>
+
+        <script>
+            function promptForPassword() {
+                const passwordPromptForm = document.getElementById('password-prompt');
+                passwordPromptForm.style.display = 'block';
+            }
+
+            function checkPassword() {
+                const passwordInput = document.getElementById('password-input').value;
+                // Here, you can check the entered password against your server or any other validation logic
+                // For simplicity, let's assume a hardcoded password for demonstration purposes
+                const correctPassword = 'admin123';
+
+                if (passwordInput === correctPassword) {
+                    showSignupForm();
+                } else {
+                    alert('Incorrect password. Try again.');
+                }
+            }
+
+            function showSignupForm() {
+                const passwordPromptForm = document.getElementById('password-prompt');
+                const signupForm = document.getElementById('signup-form');
+                const addStaffBtn = document.querySelector('.add-staff-btn');
+
+                passwordPromptForm.style.display = 'none';
+                signupForm.style.display = 'block';
+                addStaffBtn.style.display = 'none';
+            }
+
+            function goBackToLogin() {
+                const loginForm = document.getElementById('login-form');
+                const signupForm = document.getElementById('signup-form');
+                const addStaffBtn = document.querySelector('.add-staff-btn');
+
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+                addStaffBtn.style.display = 'block';
+            }
+        </script>
+    </div>
+
+</body>
+
+</html>

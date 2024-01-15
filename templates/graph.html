@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Bar Charts</title>
+    <link rel="stylesheet" href="/static/css/style3.css">
+    <!-- Add Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div>
+        <h2>Food Usage (Update every morning)</h2>
+        <canvas id="chart1" width="400" height="200"></canvas>
+        <input type="number" id="value1" placeholder="Enter value for Food Usage">
+        <button onclick="updateChart(1, 'value1')">Update</button>
+    </div>
+
+    <div>
+        <h2>Left Over Food (Update by 8pm)</h2>
+        <canvas id="chart2" width="400" height="200"></canvas>
+        <input type="number" id="value2" placeholder="Enter value for Left Over Food">
+        <button onclick="updateChart(2, 'value2')">Update</button>
+    </div>
+
+    <div>
+        <h2>Food Wastage</h2>
+        <canvas id="chart3" width="400" height="200"></canvas>
+        <input type="number" id="value3" placeholder="Enter value for Food Wastage">
+        <button onclick="updateChart(3, 'value3')">Update</button>
+    </div>
+
+    <script>
+        // Initial data for charts
+        function fetchInitialChartData() {
+            fetch('/get_initial_chart_data')
+                .then(response => response.json())
+                .then(initialData => {
+                    if (initialData.success) {
+                        // Initialize the charts with the fetched data
+                        var chart1 = createChart('chart1', 'Food Usage', initialData.chartData1);
+                        var chart2 = createChart('chart2', 'Left Over Food', initialData.chartData2);
+                        var chart3 = createChart('chart3', 'Food Wastage', initialData.chartData3);
+
+                        // Attach the charts to global variables for later reference
+                        window.chart1 = chart1;
+                        window.chart2 = chart2;
+                        window.chart3 = chart3;
+                    }
+                });
+        }
+
+
+        function createChart(canvasId, chartLabel, data) {
+            var ctx = document.getElementById(canvasId).getContext('2d');
+            return new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    datasets: [{
+                        label: chartLabel,
+                        data: data,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', fetchInitialChartData);
+
+        function updateChart(chartIndex, inputId) {
+            // Get user input value
+            var newValue = document.getElementById(inputId).value;
+
+            // Send the update to the server
+            fetch('/update_chart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ chartIndex: chartIndex, value: newValue }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Update the chart on the client side
+                        var chart;
+                        if (chartIndex === 1) chart = window.chart1;
+                        else if (chartIndex === 2) chart = window.chart2;
+                        else if (chartIndex === 3) chart = window.chart3;
+                        chart.data.datasets[0].data = data.updatedData;
+                        chart.update();
+                    }
+                });
+        }        
+    </script>
+
+</body>
+
+</html>
