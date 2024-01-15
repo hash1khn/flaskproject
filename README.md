@@ -1,4 +1,4 @@
-# FlaskProject: Promotion and User Management
+# Simple Sushi Website Using Flask
 
 This repository contains a Flask application for managing promotions and user data. The application includes features such as updating promotions, user authentication, and real-time chart updates.
 
